@@ -56,7 +56,7 @@ export default class ExpenseForm extends React.Component {
         }))
     }
 
-    onSubmit = () => {
+    onSubmit = (e) => {
         e.preventDefault()
 
         if (!this.state.description || !this.state.amount) {
@@ -67,7 +67,12 @@ export default class ExpenseForm extends React.Component {
             this.setState(() => ({
                 error: ''
             }))
-            console.log("Submitted")
+            this.props.onSubmit({
+                description: this.state.description,
+                amount: parseFloat(this.state.amount, 10) * 100,
+                createdAt: this.state.createdAt.valueOf(),
+                note: this.state.note
+            })
         }
     }
 
@@ -78,7 +83,7 @@ export default class ExpenseForm extends React.Component {
                 <form onSubmit={this.onSubmit}>
                     <input
                       type="text"
-                      placeholder="description"
+                      placeholder="Description"
                       autoFocus
                       value={this.state.description}
                       onChange={this.onDescriptionChange}
