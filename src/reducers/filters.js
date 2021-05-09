@@ -8,7 +8,7 @@ const filtersReducerDefaultState = {
     endDate: moment().endOf('year')
 }
 
-export default (state={text:'', sortBy:'date', startDate:undefined, endDate:undefined}, action) => {
+export default (state=filtersReducerDefaultState, action) => {
      switch(action.type){
         case 'SET_TEXT_FILTER':
             return {
