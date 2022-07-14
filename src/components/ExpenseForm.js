@@ -8,7 +8,6 @@ import 'react-dates/initialize'
 export default class ExpenseForm extends React.Component {
     constructor(props){
         super(props)
-        console.log(props)
         this.state = {
             description: props.expense ? props.expense.description:'',
             note: props.expense ? props.expense.note:'',
@@ -27,10 +26,9 @@ export default class ExpenseForm extends React.Component {
     }
 
     onNoteChange = (e) => {
-        // const note = e.target.value
-        e.persist()
+        const note = e.target.value
         this.setState(() => ({
-            note: e.target.value
+            note: note
         }))
     }
 

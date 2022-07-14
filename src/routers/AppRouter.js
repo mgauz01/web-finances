@@ -20,7 +20,6 @@ const AppRouter = () => (
             <Route path="/edit/:id" component={EditExpensePage}/>
             <Route component={NotFoundPage}/>
         </Switch>
-
     </BrowserRouter>
 )
 
